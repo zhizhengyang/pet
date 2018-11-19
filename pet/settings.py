@@ -34,11 +34,13 @@ INSTALLED_APPS = [
     'petSearch.apps.PetsearchConfig',
     'django.contrib.admin',
     'django.contrib.auth',
+    'django_mongoengine',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -76,8 +78,7 @@ WSGI_APPLICATION = 'pet.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.dummy',
     }
 }
 
@@ -99,7 +100,15 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
+MONGODB_DATABASES = {
+    "default": {
+        "name": 'petSearch',
+        "host": 'localhost:27017',
+        "password": 'qq2005429',
+        "username": 'yzz',
+        "tz_aware": True, # if you using timezones in django (USE_TZ = True)
+    },
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/

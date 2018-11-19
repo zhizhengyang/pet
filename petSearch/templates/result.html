@@ -1,0 +1,99 @@
+<!DOCTYPE html >
+<html xmlns="http://www.w3.org/1999/xhtml">
+{% load staticfiles %}
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=emulateIE7" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>详情| mtianyan-search搜索引擎</title>
+<link href="{% static 'petSearch/css/style.css' %}" rel="stylesheet" type="text/css" />
+<link href="{% static 'petSearch/css/result.css' %}" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="container">
+    <div id="hd" class="ue-clear">
+        <a href="{% url 'index' %}"><div class="logo"></div></a>
+        <div class="inputArea">
+            <input type="text" class="searchInput" value="{{ key_words }}"/>
+            <input type="button" class="searchButton" onclick="add_search()"/>
+        </div>
+    </div>
+    <div class="nav">
+        <ul class="searchList">
+            <li class="searchItem {% ifequal s_type "article" %}current{% endifequal %}" data-type="article">伯乐文章</li>
+            <li class="searchItem {% ifequal s_type "question" %}current{% endifequal %}" data-type="question">知乎问答</li>
+            <li class="searchItem {% ifequal s_type "job" %}current{% endifequal %}" data-type="job">拉勾职位</li>
+        </ul>
+    </div>
+    <div id="bd" class="ue-clear">
+        <div id="main">
+            <div class="sideBar">
+                
+                <div class="subfield">数据来源: </br>
+                实时已爬取数据统计</div>
+                <ul class="subfieldContext">
+                    <li>
+                        <span class="name">伯乐在线</span>
+                        <span class="unit">6</span>
+                    </li>
+                    <li>
+                        <span class="name">知乎</span>
+                        <span class="unit">6</span>
+                    </li>
+                    <li>
+                        <span class="name">拉勾网</span>
+                        <span class="unit">6</span>
+                    </li>
+                </ul>
+                
+                            
+                <div class="sideBarShowHide">
+                    <a href="javascript:;" class="icon"></a>
+                </div>
+            </div>
+            <div class="resultArea">
+                <p class="resultTotal">
+                    <span class="info">找到约&nbsp;<span class="totalResult">100</span>&nbsp;条结果(用时<span class="time">20</span>秒)，共约<span class="totalPage">100</span>页</span>
+                </p>
+                <div class="resultList">
+
+                    <div class="resultItem">
+                            <div class="itemHead">
+                                <a href="{{ hits.url }}"  target="_blank" class="title">这里</a>
+                                <span class="divsion">-</span>
+                                <span class="fileType">
+                                    <span class="label">来源：</span>
+                                    <span class="value">1</span>
+                                </span>
+                                <span class="dependValue">
+                                    <span class="label">得分：</span>
+                                    <span class="value">2</span>
+                                </span>
+                            </div>
+                            <div class="itemBody">3</div>
+                            <div class="itemFoot">
+                                <span class="info">
+                                    <label>网站：</label>
+                                    <span class="value">4</span>
+                                </span>
+                                <span class="info">
+                                    <label>发布时间：</label>
+                                    <span class="value">5
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                </div>
+                <!-- 分页 -->
+                <div class="pagination ue-clear"></div>
+                <!-- 相关搜索 -->
+
+
+
+            </div>
+
+
+        </div><!-- End of main -->
+    </div><!--End of bd-->
+</div>
+</body>
+</html>
