@@ -9,13 +9,18 @@ from django.utils.decorators import method_decorator
 from django.views.generic import TemplateView
 
 from django_mongoengine import views
-
+from django.template import loader
 
 def detail(request, question_id):
     return HttpResponse("You're looking at question %s." % question_id)
 
 def result(request):
-    return render(request,'result.html')
+    web_list = ['http://www.baidu.com','http://www.google.com','http://www.alibaba.com']
+    template = loader.get_template('result.html')
+    context = {
+        'web_list': web_list,
+    }
+    return render(request,'result.html',context)
 
 def index(request):
     context = {}

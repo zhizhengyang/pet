@@ -55,10 +55,10 @@
                     <span class="info">找到约&nbsp;<span class="totalResult">100</span>&nbsp;条结果(用时<span class="time">20</span>秒)，共约<span class="totalPage">100</span>页</span>
                 </p>
                 <div class="resultList">
-
+                {% for list in web_list %}
                     <div class="resultItem">
                             <div class="itemHead">
-                                <a href="{{ hits.url }}"  target="_blank" class="title">这里</a>
+                                <a href="{{ list }}"  target="_blank" class="title">这里</a>
                                 <span class="divsion">-</span>
                                 <span class="fileType">
                                     <span class="label">来源：</span>
@@ -81,13 +81,12 @@
                                     </span>
                                 </span>
                             </div>
-                        </div>
+                    </div>
+                {% endfor %}
                 </div>
                 <!-- 分页 -->
                 <div class="pagination ue-clear"></div>
                 <!-- 相关搜索 -->
-
-
 
             </div>
 
